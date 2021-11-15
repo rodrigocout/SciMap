@@ -1,0 +1,56 @@
+---
+title: "Exploring scRNA-seq hiPSCs chondrogenesis"
+author: "Rodrigo Coutinho de Almeida"
+output:
+  html_document:
+    df_print: paged
+---
+
+#### hiPSCs dataset from Wu et al.Nat Commun 12, 362 (2021). 
+
+```{r}
+library(dplyr)
+library(Seurat)
+library(patchwork)
+
+
+
+# Load the hiPSC dataset
+data.dir = "/Users/rodrigoalmeida/Documents/WorkingFromHome/scimap/GSE160787_RAW/hiPSC"
+list.files(data.dir)
+ipsc.data <- Read10X(data.dir)
+# Initialize the Seurat object with the raw (non-normalized data).
+ipsc <- CreateSeuratObject(counts = ipsc.data, project = "hiPSC-chondro")
+
+ipsc
+```
+
+# Normalization
+```{r}
+ipsc <- NormalizeData(ipsc, normalization.method = "LogNormalize", scale.factor = 10000)
+
+ipsc <- FindVariableFeatures(ipsc, selection.method = "vst", nfeatures = 5000)
+
+```
+
+# Scale the data
+
+```{r}
+
+all.genes <- rownames(ipsc)
+ipsc <- ScaleData(ipsc, features = all.genes)
+
+ipsc <- RunPCA(ipsc, features = VariableFeatures(object = ipsc))
+
+# Examine and visualize PCA results a few different ways
+print(ipsc[["pca"]], dims = 1:5, nfeatures = 5)
+DimPlot(ipsc, reduction = "pca")
+
+ipsc <- RunUMAP(ipsc, dims = 1:10)
+DimPlot(ipsc, reduction = "umap")
+
+ipsc <- RunTSNE(ipsc, dims = 1:10)
+
+DimPlot(ipsc, reduction = "tsne")
+
+```
