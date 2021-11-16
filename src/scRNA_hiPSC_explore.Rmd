@@ -13,7 +13,8 @@ library(dplyr)
 library(Seurat)
 library(patchwork)
 
-
+###NOTE###
+## You have to change the name of the files. Read10X function don't accept prefix. 
 
 # Load the hiPSC dataset
 data.dir = "/Users/rodrigoalmeida/Documents/WorkingFromHome/scimap/GSE160787_RAW/hiPSC"
