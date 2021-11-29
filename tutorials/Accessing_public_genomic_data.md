@@ -1,4 +1,4 @@
-This tutorial was adapeted from the workshop from https://github.com/marypiper at [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/)  https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/lessons/accessing_public_experimental_data_catalyst.md
+This tutorial was adapted from the workshop from https://github.com/marypiper [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/)  https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/lessons/accessing_public_experimental_data_catalyst.md
 
 Approximate time: 25 minutes
 
