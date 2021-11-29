@@ -1,4 +1,4 @@
-This tutorial was adapeted from the workshop https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/lessons/accessing_public_experimental_data_catalyst.md
+This tutorial was adapeted from the workshop from https://github.com/marypiper at [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/)  https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/lessons/accessing_public_experimental_data_catalyst.md
 
 Approximate time: 25 minutes
 
@@ -32,29 +32,29 @@ To search GEO for particular types of data is relatively straight forward. Once 
 
 The most straight-forward method can be found by clicking on 'Datasets' under the 'Browse Content' column. 
 
-<img src="../img/geo_dataset.png" width="400">
+<img src="https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/img/geo_dataset.png" width="400">
 
 The 'Datasets' link will open the GEO Dataset Browser; click on 'Advanced Search'.
 
-<img src="../img/geo_browser.png" width="600">
+<img src="https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/img/geo_browser.png" width="600">
 
 All results will appear in a new window with clickable filters on the left-hand side. You can choose the filters, such as 'Organism' (human, mouse), 'Study type' (Expression profiling by high throughput sequencing), 'Publication dates' (1 year), etc. to filter the data for the desired attributes.
 
-<img src="../img/geo_filter.png" width="700">
+<img src="https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/img/geo_filter.png" width="700">
 
 ### Finding GEO data for a particular publication
 
 To find data from a published paper on GEO, the paper will often provide the GEO accession number. For example, let's find the data associated with the paper, "MOV10 and FRMP regulate AGO2 association with microRNA recognition elements". First, we can navigate to the [article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4268400/).
 
-<img src="../img/mov10_paper.png" width="600">
+<img src="https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/img/mov10_paper.png" width="600">
 
 Then, we can search for the term **"GEO"**; different papers have different requirements for where this information is located. In this article, it is available in a separate section entitled "Accession Numbers".
 
-<img src="../img/mov10_accession.png" width="600">
+<img src="https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/img/mov10_accession.png" width="600">
 
 By clicking on the GEO accession number for the experiment of interest, the GEO page for this experiment will open.
 
-<img src="../img/mov10_geo.png" width="700">
+<img src="https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/img/mov10_geo.png" width="700">
 
 The GEO page contains information about the experiment, including:
 	
@@ -70,7 +70,7 @@ If we were interested in **downloading the raw counts matrix (`GSE50499_GEO_Cema
 
 We could download this file by clicking on the `ftp` link. In addition to the counts matrix file, we would probably also want the metadata for the file to know which sample belongs to which conditions by clicking on the "Series Matrix File(s)" link. 
 
-<img src="../img/mov10_download.png" width="600">
+<img src="https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/img/mov10_download.png" width="600">
 
 Now that we have these files, if we wanted to perform differential expression analysis, we could bring them into R to perform some data wrangling and analysis as we will learn later.
 
@@ -94,11 +94,11 @@ $ cd mov10_rnaseq_project/data/counts
 
 Now that we are ready on the cluster, we can find the link to transfer the data using GEO's FTP site. To access the FTP site, return to the [GEO home page](https://www.ncbi.nlm.nih.gov/geo/) and under the "Tools" header, click on "FTP site".
 
-<img src="../img/geo_ftp.png" width="350">
+<img src="https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/img/geo_ftp.png" width="350">
 
 This will take you to the directory to access all GEO data.
 
-<img src="../img/geo_dir.png" width="350">
+<img src="https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/img/geo_dir.png" width="350">
 
 To download the data associated with the paper, "MOV10 and FMRP Regulate AGO2 Association with MicroRNA Recognition Elements", use the GEO ID given in the paper, `GSE50499`.
 
@@ -108,7 +108,7 @@ To download the data associated with the paper, "MOV10 and FMRP Regulate AGO2 As
 4. The data files available are in the `suppl/` directory. If we choose to download all associated data, we can download the entire `suppl/` directory
 5. Use the `wget` command followed by the link to the `suppl/` directory (right-clicking and choosing 'Copy Link Address'). 
 
-	<img src="../img/geo_folder_cp.png" width="500">
+	<img src="https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/img/geo_folder_cp.png" width="500">
 
 Using the `wget` command to copy this directory requires a few options. Since we are copying a directory, the `-r/--recursive` option is required. Also, the `-np/--no-parent` option and the `-nd` for no directories is used to avoid the `wget`'s  default copying of any parent directories.
 
@@ -136,7 +136,7 @@ Unfortunately, we cannot download folders with `curl`. However, for MacOS, the [
 
 Also, it's worth noting that we don't need to navigate the FTP site to find individual files to download, since the link on the GEO site should list a link to the file. By right-clicking on the `ftp` link on GEO, you can copy the 'ftp address' to use with the `wget` or `curl` command.
 
-<img src="../img/geo_ftp_cl.png" width="700">
+<img src="https://github.com/hbctraining/Accessing_public_genomic_data/blob/master/img/geo_ftp_cl.png" width="700">
 
 ---
 *This lesson has been developed by members of the teaching team at the [Harvard Chan Bioinformatics Core (HBC)](http://bioinformatics.sph.harvard.edu/). These are open access materials distributed under the terms of the [Creative Commons Attribution license](https://creativecommons.org/licenses/by/4.0/) (CC BY 4.0), which permits unrestricted use, distribution, and reproduction in any medium, provided the original author and source are credited.*
