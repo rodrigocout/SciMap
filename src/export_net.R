@@ -5,6 +5,7 @@ library(patchwork)
 library(R.matlab)
 library(WGCNA)
 library(data.table)
+library(parmigene)
 # The following setting is important, do not omit.
 options(stringsAsFactors = FALSE);
 
@@ -50,7 +51,13 @@ all.genes <- rownames(pbmc)
 
 genes <- list(all.genes)
 
-# save data
-writeMat("C:/Data/phd/code/D1_data.mat",x=pbmc[["RNA"]]@data)
+mat <- pbmc[["RNA"]]@data
+mat <- as.matrix(mat)
+mat <- mat[-c(1001:dim(mat)[1]),]
+mi <- knnmi.all(mat)
+grn <- aracne.a(mi, 0.05)
 
-write.csv(genes, "C:/Data/phd/code/genes_D1.csv")
+# # save data
+# writeMat("C:/Data/phd/code/D1_data.mat",x=pbmc[["RNA"]]@data)
+# 
+# write.csv(genes, "C:/Data/phd/code/genes_D1.csv")
