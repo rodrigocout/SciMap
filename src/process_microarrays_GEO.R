@@ -20,7 +20,10 @@ gexp <- exprs(gset)
 #Check 
 head(gexp)
 # log2 transform
-Log2Normgexp <- log2(gexp)
+Log2gexp <- log2(gexp)
+
+#Normalize the log2 transform dataset
+NormGexp <- normalizeBetweenArrays(Log2gexp) 
 
 #------------
 #Probe to gene
@@ -48,11 +51,15 @@ head(Gexp)
 colnames(Gexp)[1] <- c('agilent_probes')
 Gexp$agilent_sureprint_g3_ge_8x60k_v2 <- NULL
 
-Log2NormGexp <- merge(agilent.df, Log2Normgexp, by = "row.names")
-head(Log2NormGexp)
+#----------
+Log2NormGexp <- merge(agilent.df, NormGexp, by = "row.names") #Here I changed to NormGexp
+head(Log2Gexp)
 #Process
 colnames(Log2NormGexp)[1] <- c('agilent_probes')
 Log2NormGexp$agilent_sureprint_g3_ge_8x60k_v2 <- NULL
+
+
+
 
 write.table(Gexp, "Raw_expression_Dataset_GSE96036_Kawataetal2019.txt", 
             sep = '\t', quote = F, row.names = F)
