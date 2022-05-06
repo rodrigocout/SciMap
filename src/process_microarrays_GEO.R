@@ -61,4 +61,4 @@ write.table(Log2NormGexp, "Log2Normalized_expression_Dataset_GSE96036_Kawataetal
             sep = '\t', quote = F, row.names = F)
 
 write.table(Pheno,"Phenotype_Dataset_GSE96036_Kawataetal2019.txt", 
-            sep = '\t', quote = F, row.names = F)
+            sep = '\t', quote = F)
