@@ -31,5 +31,5 @@ top.subgraph <- induced_subgraph(full.graph, top.degree.verticies)
 
 plot(top.subgraph)
 
-# count the number of proteins in it
+# count the number of proteins on it
 vcount(top.subgraph)
