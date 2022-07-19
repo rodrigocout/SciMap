@@ -1,2 +1,2 @@
 # SciMap
-## Sngle-cell RNA-seq analysis from hiPSCs ## 
+## Single-cell RNA-seq analysis from hiPSCs ## 
